@@ -1,0 +1,1213 @@
+/* Custom Properties: Blending Gon's Dark Theme with REIVA's Premium Colors */
+:root {
+    /* Gon's Dark Theme */
+    --color-background: #0d1b2a; /* Darker, sophisticated deep blue */
+    --color-primary: #e94560; /* The red for the CTA (REIVA's accent color) */
+    --color-secondary: #0f3460; /* Darker blue for accents */
+    --color-text-light: #f4f4f9; /* Bright white/light gray */
+    --color-text-dim: #a9a9b9; /* Subtler gray */
+    --font-family-main: 'Outfit', sans-serif;
+
+    /* REIVA's Premium Colors (Used for Light Sections) */
+    --primary-color: #0077B6; /* Deep Blue (Trust) */
+    --accent-color: #E84D3B; /* Modern Red/Orange (Action) - Similar to Gon's Primary */
+    --scan-color: #FCD34D;
+    --background-light: #F8F9FA;
+    --background-dark: #1F2937; /* Dark Gray for Contrast */
+    --text-color: #333;
+}
+
+/* --- GLOBAL STYLES & PARTICLE BACKGROUND (Gon's Original) --- */
+
+body {
+    font-family: var(--font-family-main);
+    margin: 0;
+    padding: 0;
+    color: var(--color-text-light); /* Default dark sections text color */
+    background-color: var(--color-background);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    text-align: center;
+    line-height: 1.6;
+
+    /* PARTICLE FIELD: Created using multiple radial gradients (reliable method) */
+    background-image:
+        radial-gradient(var(--color-primary) 1px, transparent 0),
+        radial-gradient(rgba(255, 255, 255, 0.7) 1px, transparent 0),
+        radial-gradient(rgba(255, 255, 255, 0.9) 1px, transparent 0);
+
+    background-size: 50px 50px, 80px 80px, 120px 120px;
+    background-position: 0 0;
+    animation: background-move 100s linear infinite;
+}
+
+/* Z-index for all major elements */
+.header, .hero-section, .authority-block, .social-proof-quote, .benefits-section, .process-section, .newsletter-section, .footer, .modal {
+    z-index: 10;
+    position: relative;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* --- REIVA UTILITY CLASSES (MANDATORY FOR NEW LAYOUT) --- */
+
+.flex { display: flex; }
+.justify-between { justify-content: space-between; }
+.items-center { align-items: center; }
+.flex-col { flex-direction: column; }
+.text-xl { font-size: 1.25rem; }
+.text-3xl { font-size: 1.875rem; }
+.text-sm { font-size: 0.875rem; }
+.font-extrabold { font-weight: 800; }
+.mr-1 { margin-right: 0.25rem; }
+.mt-10 { margin-top: 2.5rem; }
+.mt-4 { margin-top: 1rem; }
+.mb-5 { margin-bottom: 1.25rem; }
+.mb-10 { margin-bottom: 2.5rem; }
+.text-gray-300 { color: #D1D5DB; }
+.text-gray-400 { color: #9CA3AF; }
+.text-gray-600 { color: #4B5563; }
+.text-gray-700 { color: #374151; }
+.text-gray-800 { color: #1F2937; }
+.text-yellow-300 { color: #FCD34D; }
+.text-blue-400 { color: #60A5FA; }
+.text-green-500 { color: #00FF00; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.max-w-4xl { max-width: 56rem; }
+.max-w-2xl { max-width: 42rem; }
+.max-w-6xl { max-width: 72rem; }
+.w-full { width: 100%; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+.mb-8 { margin-bottom: 2rem; }
+.mb-12 { margin-bottom: 3rem; }
+.mb-16 { margin-bottom: 4rem; }
+.text-center { text-align: center; }
+.list-none { list-style: none; padding-left: 0; }
+.space-y-2 > * + * { margin-top: 0.5rem; }
+.mr-2 { margin-right: 0.5rem; }
+.text-green-500 { color: #10B981; }
+.text-red-600 { color: #DC2626; }
+.text-green-600 { color: #059669; }
+.bg-white { background-color: white; }
+.bg-gray-100 { background-color: #F3F4F6; }
+.shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
+.rounded-xl { border-radius: 0.75rem; }
+.overflow-hidden { overflow: hidden; }
+.py-16 { padding-top: 4rem; padding-bottom: 4rem; }
+/* Simulating Tailwind Grid on non-md screens for compatibility */
+.grid { display: grid; }
+.md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.gap-10 { gap: 2.5rem; }
+.indented-li { padding-left: 20px; }
+
+
+/* --- HEADER STYLING (REIVA/GON BLEND) --- */
+.header {
+    color: white;
+    padding: 0.5rem 0 0.6rem 0;
+
+    /* CRITICAL: Define the animated gradient background with HIGHER CONTRAST */
+    background: linear-gradient(
+        90deg,
+        #0d1b2a 0%,         /* Dark anchor (Var) */
+        #1c4e80 20%,        /* **SLIGHTLY LIGHTER BLUE** for better visibility */
+        #1a2c42 50%,        /* Dark Center */
+        #1c4e80 80%,        /* **SLIGHTLY LIGHTER BLUE** */
+        #0d1b2a 100%        /* Dark anchor */
+    );
+
+    /* Keep wide background size */
+    background-size: 400% 100%;
+
+    /* Keep animation speed */
+    animation: background-shift 20s linear infinite;
+
+    /* ENHANCEMENT: Main box shadow remains */
+    box-shadow:
+        0 2px 20px rgba(0, 0, 0, 0.6),
+        /* Keeping inner glow with slightly higher alpha for illumination */
+        inset 0 -1px 12px rgba(15, 52, 96, 0.9);
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* NEW: Animated Gradient Line Pseudo-element */
+.header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    /* ENHANCEMENT: Increased height to 6px and added a blur effect (box-shadow) */
+    height: 3px;
+    box-shadow: 0 0 10px rgba(96, 165, 250, 0.8); /* Casts a light blue glow */
+
+    /* Define the gradient with the requested colors (Blue, White, Light Blue) */
+    background: linear-gradient(
+        90deg,
+        #0077B6 0%,      /* Deep Blue */
+        #FFFFFF 20%,     /* White */
+        #60A5FA 40%,     /* Light Blue */
+        #0077B6 60%,
+        #FFFFFF 80%,
+        #60A5FA 100%
+    );
+
+    background-size: 400% 100%;
+    animation: header-scan 8s linear infinite;
+    z-index: 101;
+}
+
+/* NEW: Keyframes for the scanning effect */
+@keyframes header-scan {
+    0% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: 0% 0;
+    }
+}
+
+/* @keyframes background-shift remains the same (moving from 0% to 100% and back) */
+@keyframes background-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.header-content { display: flex; justify-content: space-between; align-items: center; }
+.logo-link { text-decoration: none; }
+.logo-image { border: 2px solid var(--primary-color); box-shadow: 0 0 10px rgba(0, 119, 182, 0.5); }
+
+/* --- NEW NAVIGATION STYLING --- */
+
+.nav-menu {
+    display: flex;
+    gap: 20px; /* Space between links */
+    align-items: center;
+    /* Allows the menu to push the logo and CTA to the sides */
+    flex-grow: 1;
+    justify-content: center; /* Center the menu items themselves */
+    padding: 0 20px;
+}
+
+.nav-link {
+    color: var(--color-text-dim); /* Subtler gray text */
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    padding: 5px 0; /* Add padding for a larger click area */
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--color-text-light); /* Brighten on hover */
+    /* Optional: Add a subtle glow/shadow on hover */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+/* Make the active link stand out (you'll need JavaScript for true "active" state, but this can be a highlight color) */
+.nav-link.active {
+    color: var(--color-primary); /* Use the red accent for the active link */
+    font-weight: 700;
+    text-shadow: 0 0 8px var(--color-primary);
+}
+
+/* --- HERO STYLING (REIVA Background, Gon's Particle colors) --- */
+.hero {
+    padding: 11.5rem 0;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+
+    /* --- NEW: SINGLE FULL GIF BACKGROUND --- */
+    background-image: url('wallpaper.gif');
+    background-size: cover; /* Ensures the GIF covers the whole area */
+    background-position: center;
+    background-color: var(--color-background); /* Fallback color */
+    /* Add a subtle dark overlay to ensure text contrast */
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4);
+}
+
+.hero-content { position: relative; z-index: 2; }
+.hero h1 {
+    font-size: 3.8rem;
+    font-weight: 900;
+    line-height: 1.1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+/* --- CTA BUTTONS (Gon's Pulse, REIVA's Color) --- */
+.cta-button, .cta-button-some {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 1rem 3rem;
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: inline-block;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 15px rgba(232, 77, 59, 0.5);
+    cursor: pointer;
+    animation: pulse 2.5s infinite ease-in-out;
+    margin-top: 50px; /* Added for the .cta-button-some in the final CTA section */
+}
+.cta-button:hover, .cta-button-some:hover {
+    background-color: #cf4336;
+    transform: translateY(-3px);
+    animation: none;
+}
+.header .cta-button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.5rem;
+    border-radius: 4px;
+    box-shadow: none;
+    margin-top: 0; /* Override margin for header button */
+}
+/* Pulse Animation Definition (Gon's Original) */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(232, 77, 59, 0.5);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 25px rgba(232, 77, 59, 0.8);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(232, 77, 59, 0.5);
+    }
+}
+
+/* --- NEW KEYFRAMES FOR TEXT ANIMATION --- */
+@keyframes text-scan {
+    0% {
+        /* Start the gradient far left (off-screen) */
+        background-position: 100% 0;
+    }
+    100% {
+        /* Move the gradient far right (off-screen) */
+        background-position: -10% 0;
+    }
+}
+
+/* --- ANIMATED TEXT STYLING (The Scan Effect - FINAL VERSION) --- */
+.animated-text {
+    /* 1. Define the color source. This gradient is mostly RED, with a BLUE flash. */
+    background: linear-gradient(
+        90deg,
+        var(--accent-color) 0%,           /* Base RED color start */
+        var(--accent-color) 40%,          /* Base RED color area */
+        var(--scan-color) 50%,         /* Moving BLUE scanline center */
+        var(--accent-color) 60%,          /* Base RED color area */
+        var(--accent-color) 100%          /* Base RED color end */
+    );
+    background-size: 200% 100%; /* Makes the gradient (the source) twice as wide as the text */
+
+    /* 2. CORE TRICK: Restrict the background (gradient) to the text shape only */
+    color: transparent; /* Makes the original font color invisible */
+    -webkit-background-clip: text; /* For Safari/Chrome */
+    background-clip: text;
+
+    /* 3. Ensures the red is visible if the browser struggles */
+    text-shadow: 0 0 2px rgba(232, 77, 59, 0.5);
+
+    /* 4. Apply the animation: Duration 2s, Delay 3s */
+    animation: text-scan 6s linear infinite; /* Scan duration: 2s */
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.headline-emphasis {
+    font-style: italic;
+    font-weight: 600;
+}
+
+.italic-font {
+    font-style: italic;
+}
+
+/* --- CUSTOM CHECKMARK ICON LIST (FINAL, PERFECTLY CENTERED) --- */
+.checkmark-list {
+    /* Ensure the list starts flush left */
+    padding-left: 0;
+
+    /* 💡 HORIZONTAL CENTERING FIX: */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the entire block of list items */
+}
+
+.checkmark-list li {
+    position: relative;
+    list-style: none;
+
+    /* Re-add the crucial padding to make space for the icon */
+    padding-left: 28px;
+
+    margin-bottom: 8px;
+
+    /* Ensure the list item contents align left */
+    text-align: left;
+
+    /* Allow the <li> to shrink to its content size for proper centering */
+    width: fit-content;
+    max-width: 100%; /* Prevents overflow */
+
+    /* Other properties */
+    display: list-item;
+    line-height: 1.4;
+}
+
+.checkmark-list li::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+
+    background-image: url('checkmark.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    position: absolute;
+
+    /* Positions icon correctly at the left edge of the padded space */
+    left: 0;
+
+    /* 💡 The absolute centering rule (50% and -50% translation) */
+    top: 50%;
+    transform: translateY(-39%);
+
+    /* If text still looks too low, use this slightly adjusted rule instead: */
+    /* transform: translateY(calc(-50% - 1px)); */
+}
+
+/* --- SECONDARY ICON LIST STYLING (For #value section) --- */
+
+.icon-list-secondary li {
+    position: relative;
+    list-style: none;
+    /* Space for the icon (slightly less since the text starts immediately) */
+    padding-left: 30px;
+    margin-bottom: 8px;
+
+    /* Ensure text alignment is clean */
+    text-align: left;
+    line-height: 1.4;
+}
+
+.icon-list-secondary li::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+
+    /* Insert the same checkmark icon */
+    background-image: url('checkmark.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    left: 0;
+
+    /* Vertical alignment rule */
+    top: 50%;
+    transform: translateY(-39%); /* Adjust for perfect visual centering */
+}
+
+/* --- Corrected Styles for Center Alignment --- */
+
+.benefit-row {
+    display: flex;
+
+    /* FIX: Center the items horizontally within the benefit-row container */
+    justify-content: center;
+
+    /* Keep the controlled space between the items */
+    column-gap: 30px;
+
+    /* Keep row gap small for mobile wrapping */
+    row-gap: 5px;
+
+    align-items: flex-start;
+    margin-top: 0 !important;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+
+    /* FIX: Set flex properties back to default or 'auto' for centering to work reliably */
+    /* By removing the aggressive flex: 0 0 auto, the centering property can take effect. */
+    flex: 0 0 auto;
+
+    /* Removed padding-right: 15px; from previous fix to ensure items cluster tightly */
+
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.2;
+}
+
+.benefit-icon {
+    width: 28px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.benefit-text {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: inherit;
+    color: #fff;
+}
+
+/* --- PROCESS CARD STYLING (Reverts dark theme for light section) --- */
+.process-card {
+    /* Set specific background color for the light section */
+    background-color: white !important;
+    color: var(--text-color); /* Use dark text color */
+}
+
+/* Override the dark matte background to white */
+.process-card::after {
+    background-color: white !important;
+}
+
+/* Ensure content text is dark on the white background */
+.process-card p, .process-card ul, .process-card li {
+    color: var(--text-color) !important;
+}
+
+/* --- FEATURE / VALUE CARD STYLING (REIVA's Look) --- */
+.benefits-section {
+    padding: 5rem 0;
+    text-align: center;
+    background-image: none;
+    background-size: auto;
+    background-position: initial;
+    background-repeat: initial;
+    background-color: var(--background-light);
+    position: relative;
+    overflow: hidden;
+}
+
+/* REVERTED: Remove the dark overlay pseudo-element */
+.benefits-section::before {
+    content: none;
+}
+
+/* RESTORED: Content positioning (relative z-index is still good practice) */
+.benefits-section .container,
+.benefits-section h2,
+.benefits-section p {
+    position: relative;
+    z-index: 2;
+}
+
+/* RESTORED: Ensure section text is dark on the light background */
+.benefits-section h2, .benefits-section p {
+    color: var(--text-color) !important; /* Set text to dark color, e.g., #333 */
+}
+
+/* --- FEATURE / VALUE CARD STYLING (REIVA's Look) --- */
+.process-section {
+    padding: 5rem 0;
+    text-align: center;
+
+    /* 1. NEW: Explicit GIF Background */
+    background-image: url('wallpaper2.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--color-background); /* Fallback */
+
+    position: relative;
+    overflow: hidden;
+}
+
+/* 2. NEW: Dark Overlay for Text Readability */
+.process-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Subtle dark blue/black overlay to make the content readable over the GIF */
+    background-color: rgba(0, 0, 0, 0.45);
+    z-index: 1; /* Place overlay above the GIF */
+}
+
+/* 3. Ensure all content (container, titles, text) sits above the new overlay */
+.process-section .container,
+.process-section h2,
+.process-section p {
+    position: relative;
+    z-index: 2; /* Place content above the overlay (z-index: 1) */
+}
+
+/* 4. Ensure section text is white over the dark overlay */
+.process-section h2 { color: var(--text-color); }
+
+.feature-card {
+    /* RESTORED: Original padding */
+    padding: 2.5rem;
+
+    background-color: white; /* Card center color */
+    color: var(--text-color);
+    border-radius: 12px;
+
+    /* CRITICAL FOR BORDER ANIMATION */
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+
+    border-left: none;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s;
+}
+
+/* 1. THE ANIMATED BORDER ELEMENT (Pseudo-element ::before) */
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+
+    /* MODIFIED: Changed color stops for Blue border with Red/Accent scanning */
+    background: conic-gradient(
+        transparent 0deg,
+        #0077B6 30deg,      /* Deep Blue (Base Border Color) */
+        #E34234 100deg,      /* VIBRANT RED (The constantly changing color) */
+        #60A5FA 180deg,      /* Light Blue/Accent */
+        #0077B6 270deg,
+        transparent 360deg
+    );
+
+    z-index: -1;
+    border-radius: 15px;
+    animation: spin 6s linear infinite;
+}
+
+/* 2. THE CARD SURFACE (Pseudo-element ::after) */
+.feature-card::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+
+    background-color: white; /* Card center color */
+    border-radius: 10px;
+    z-index: -1;
+}
+
+
+/* 3. RELAYING CONTENT TO THE FOREGROUND */
+/* All direct children (h3, p, ul) need z-index to show over the ::after background. */
+.feature-card > * {
+    position: relative;
+    z-index: 3;
+}
+
+
+/* --- ANIMATION AND HOVER EFFECTS --- */
+
+.feature-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px 5px rgba(0, 119, 182, 0.5); /* Matching Red glow on hover */
+}
+
+/* Keyframes for spinning the conic gradient (Remains the same) */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.value-section h2 { color: var(--text-color); }
+
+/* --- MANUAL CENTERING FIX --- */
+/* Use transform to shift the card without affecting its calculated width/size */
+.centered-shift {
+    /* You may need to tweak this value (e.g., 5px, -10px, 15px) */
+    transform: translateX(300px);
+}
+
+
+/* --- AUTHORITY BLOCK STYLING (Gon's Original) --- */
+/* The Authority block now sits inside a .value-section for layout compatibility */
+.authority-block .container {
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 50px 0; /* Add back padding lost when nested */
+}
+.authority-photo {
+    width: 210px;
+    height: 210px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--color-primary);
+    box-shadow: 0 0 25px rgba(233, 69, 96, 0.8), 0 0 5px var(--color-text-light);
+    transition: transform 0.3s ease;
+}
+.authority-photo:hover { transform: scale(1.05); }
+.authority-content { text-align: center; max-width: 650px; }
+.authority-slogan {
+    font-size: 2.2em;
+    font-weight: 800;
+    color: var(--color-background); /* Dark text on light background */
+    margin: 0 0 15px 0;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.authority-description {
+    font-size: 1.2em;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+.authority-cta {
+    font-size: 1.2em;
+    font-weight: bold;
+    line-height: 1.6;
+    color: var(--accent-color); /* Highlighted CTA text */
+}
+
+/* --- SOCIAL PROOF QUOTE STYLING (Gon's Original) --- */
+.social-proof-quote {
+    padding: 60px 20px;
+    background: var(--color-background); /* Dark background maintained */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+.social-proof-quote .container { max-width: 800px; margin: 0 auto; }
+.quote-text {
+    font-size: 2em;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--color-text-light);
+    margin: 0 0 15px 0;
+    font-style: italic;
+    border-left: 5px solid var(--color-primary);
+    padding-left: 20px;
+    text-align: left;
+}
+.quote-source {
+    font-size: 1.1em;
+    font-weight: 400;
+    color: var(--color-primary);
+    margin: 0;
+    text-align: left;
+    padding-left: 25px;
+}
+
+
+/* --- FINAL CTA / NEWSLETTER SECTION (GIF Background) --- */
+.newsletter-section {
+    /* REMOVED: Solid color background */
+
+    color: white; /* Keep text color white */
+    padding: 4rem 0;
+    text-align: center;
+    position: relative; /* Needed for the pseudo-element overlay */
+    overflow: hidden; /* Recommended for background content */
+
+    /* NEW: GIF Background Properties */
+    background-image: url('wallpaper1.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--color-background); /* Fallback */
+}
+
+/* NEW: Add a subtle dark overlay using a pseudo-element for text contrast */
+.newsletter-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Subtle dark blue/black overlay to make the white text readable over the GIF */
+    background-color: rgba(0, 0, 0, 0.45);
+    z-index: 1; /* Place overlay above the GIF */
+}
+
+/* Ensure all content (container) sits above the new overlay */
+.newsletter-section .container {
+    position: relative;
+    z-index: 2; /* Place content above the overlay (z-index: 1) */
+}
+
+/* Newsletter form styles remain, but should now be applied to the 'contact-form' structure */
+/* Retaining the original form structure styles for completeness: */
+.newsletter-form {
+    display: flex;
+    justify-content: center;
+    max-width: 600px;
+    margin: 1.5rem auto 0;
+    gap: 1rem;
+}
+.newsletter-form input[type="email"] {
+    padding: 1rem;
+    flex-grow: 1;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+
+/* --- FOOTER STYLING (Gon's Split Layout, REIVA's Dark Color) --- */
+.footer {
+    background-color: #0f172a; /* Darker than body background */
+    color: #9ca3af;
+    padding: 2rem 40px;
+    border-top: 2px solid var(--color-primary); /* Use Gon's red for contrast */
+    font-size: 0.9em;
+    /* Gon's Split Layout */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Footer Link and Social Icons (Gon's original) */
+.copyright-info { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; }
+.copyright-info p { margin: 0; }
+.footer-link { color: #FFFF00; text-decoration: none; transition: color 0.3s ease; }
+.footer-link:hover { color: var(--color-primary); text-decoration: underline; }
+.socials-container { display: flex; align-items: center; gap: 15px; }
+.socials-label { font-weight: 600; color: var(--color-text-light); margin-right: 5px; font-size: 1em; }
+.social-icon {
+    display: flex; justify-content: center; align-items: center; width: 35px; height: 35px;
+    border-radius: 50%; text-decoration: none; transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2); background-color: var(--color-secondary); color: var(--color-text-light);
+}
+.icon-placeholder { font-size: 0.8em; font-weight: 700; letter-spacing: 0.5px; }
+.social-icon:hover {
+    transform: scale(1.1); border-color: var(--color-primary); background-color: var(--color-primary);
+    box-shadow: 0 0 15px var(--color-primary);
+}
+
+/* --- GUARANTEE / RISK REVERSAL STYLING --- */
+.risk-reversal-section {
+    padding: 5rem 0;
+    background-color: #F8F9FA;
+    text-align: center;
+}
+.guarantee-card {
+    /* Retained original padding and border radius */
+    padding: 1.5rem;
+    border-radius: 8px;
+
+    /* CRITICAL FOR BORDER ANIMATION */
+    background-color: transparent; /* Must be transparent to see the ::before gradient */
+    position: relative;
+    z-index: 1; /* Ensure card content stays above the page background */
+    overflow: hidden;
+
+    /* Remove static border */
+    border: none;
+
+    /* Retained original transition */
+    transition: transform 0.3s;
+
+    /* Standard box shadow */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 1. THE ANIMATED BORDER ELEMENT (Pseudo-element ::before) */
+/* This element is slightly larger than the card and contains the spinning gradient. */
+.guarantee-card::before {
+    content: '';
+    position: absolute;
+    /* Adjust these to control the visible thickness of the border */
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+
+    /* Make the pseudo-element large enough to fully surround the card */
+    width: calc(100% + 16px);
+    height: calc(100% + 16px);
+
+    /* Define the animated gradient colors: Green Base with a brighter scanning spot */
+    background: conic-gradient(
+        transparent 0deg,
+        #00FF00 30deg,      /* Vibrant Green (Base Border Color) */
+        #33FF33 100deg,      /* Brighter Green/Accent */
+        #FFFFFF 180deg,      /* White (or very light accent) */
+        #00FF00 270deg,
+        transparent 360deg
+    );
+
+    z-index: -1; /* Place below the card content */
+    border-radius: 10px; /* Slightly larger than card radius */
+    animation: spin 6s linear infinite;
+}
+
+/* 2. THE CARD SURFACE (Pseudo-element ::after) */
+/* This element provides the opaque white center, revealing only the animated gradient as the border. */
+.guarantee-card::after {
+    content: '';
+    position: absolute;
+    /* Controls the border thickness (3px smaller than the ::before offset) */
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+
+    background-color: white; /* Card center color */
+    border-radius: 6px; /* Slightly smaller than card radius */
+    z-index: -1; /* Place below the card content but above the ::before gradient */
+}
+
+/* 3. RELAYING CONTENT TO THE FOREGROUND */
+/* All direct children need a z-index to appear above the ::after background. */
+.guarantee-card > * {
+    position: relative;
+    z-index: 3;
+}
+
+.guarantee-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #00FF00;
+}
+
+/* --- FUTURISTIC TESTIMONIALS STYLING --- */
+.testimonial-container {
+    color: white;
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+
+    /* 1. NEW: Explicit GIF Background */
+    background-image: url('wallpaper3.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--background-dark); /* Fallback */
+}
+
+/* 2. NEW: Dark Overlay for Text Readability */
+.testimonial-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Dark overlay to ensure white text and cards pop over the GIF */
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 1; /* Place overlay above the GIF */
+}
+
+/* 3. Ensure all content sits above the new overlay */
+.testimonial-container > * {
+    position: relative;
+    z-index: 2; /* Content must be higher than the overlay (z-index: 1) */
+}
+.testimonial-grid {
+    /* Increase separation between cards */
+    gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.testimonial-card {
+    background-color: #2D3748;
+    padding: 2.5rem;
+    border-radius: 12px;
+    /* Remove the old border: 1px solid #3c495e; */
+
+    /* CRITICAL FOR BORDER ANIMATION (Added/Updated) */
+    position: relative;
+    z-index: 1; /* Bring the card above the background GIF/overlay */
+    overflow: hidden;
+
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+    cursor: pointer;
+}
+/* --- ANIMATED BORDER STYLING FOR TESTIMONIAL CARDS --- */
+
+/* 1. THE ANIMATED BORDER ELEMENT (Pseudo-element ::before) */
+.testimonial-card::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+
+    /* CONIC GRADIENT: Use the same blue/red/accent colors */
+    background: conic-gradient(
+        transparent 0deg,
+        #0077B6 30deg,      /* Deep Blue (Base Border Color) */
+        #E34234 100deg,      /* VIBRANT RED (The constantly changing color) */
+        #60A5FA 180deg,      /* Light Blue/Accent */
+        #0077B6 270deg,
+        transparent 360deg
+    );
+
+    z-index: -1;
+    border-radius: 15px;
+    animation: spin 6s linear infinite;
+}
+
+/* 2. THE CARD SURFACE (Pseudo-element ::after) */
+.testimonial-card::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+
+    /* CRITICAL: Use the card's original dark background color to cover the center */
+    background-color: #2D3748;
+    border-radius: 10px;
+    z-index: -1;
+}
+
+
+/* 3. RELAYING CONTENT TO THE FOREGROUND */
+/* All direct children (p) need z-index to show over the ::after dark background. */
+.testimonial-card > * {
+    position: relative;
+    z-index: 3;
+}
+
+.testimonial-card:hover {
+    /* Futuristic Hover Animation */
+    transform: scale(1.05);
+    background-color: #3e4c63; /* Slight color change on hover */
+    box-shadow: 0 0 20px rgba(0, 119, 182, 0.5); /* Blue glow effect */
+    z-index: 10;
+}
+.testimonial-card p {
+    font-style: italic;
+    font-size: 1.15rem;
+}
+.testimonial-card .italic { font-style: normal; } /* Override italic on the new content */
+
+/* --- MODAL STYLES (Gon's Original) --- */
+.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.9); justify-content: center; align-items: center; }
+.modal-content { margin: auto; display: block; width: 90%; max-width: 500px; max-height: 90vh; border-radius: 10px; box-shadow: 0 0 30px rgba(233, 69, 96, 0.5); transition: transform 0.3s ease-out; }
+.close-button { position: absolute; top: 20px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; transition: 0.3s; cursor: pointer; }
+.close-button:hover, .close-button:focus { color: var(--color-primary); text-decoration: none; }
+
+/* --- LEAD CAPTURE CONTACT FORM STYLING --- */
+.contact-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns on desktop */
+    gap: 20px;
+    max-width: 800px; /* Limit form width */
+    margin: 30px auto 0;
+    text-align: left;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: white; /* Text color of the surrounding section */
+    margin-bottom: 5px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    padding: 12px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: var(--font-family-main);
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white input field */
+    color: var(--text-color); /* Dark text for readability */
+    transition: border-color 0.3s, box-shadow 0.3s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(232, 77, 59, 0.4);
+    outline: none;
+}
+
+/* Make the textarea span both columns on desktop */
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+/* Style the submit button to match your CTA buttons */
+.contact-form .submit-button {
+    grid-column: 1 / -1; /* Make button full width */
+    margin-top: 10px;
+    /* CTA button styles are already defined via .cta-button-some */
+}
+
+.socials-container {
+    display: flex;
+    flex-direction: column; /* This is what makes them stack vertically */
+    align-items: flex-end; /* This aligns them to the right edge */
+    gap: 5px;
+}
+
+/* Ensure the wrapper for the icons stays horizontal */
+.social-icons-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* --- Success Alert Styles --- */
+.success-alert-message {
+    background-color: #d1e7dd; /* Light green background */
+    color: #0f5132; /* Dark green text */
+    border: 1px solid #badbcc;
+    padding: 15px;
+    margin: 20px auto 30px; /* Center it and add spacing */
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    max-width: 600px; /* Match form width */
+    opacity: 0; /* Start invisible for a slight fade-in */
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* --- MEDIA QUERY (Unified) --- */
+@media (max-width: 768px) {
+    .container { padding: 0 1rem; }
+    .hero h1 { font-size: 2.5rem; }
+    .header-content { flex-direction: column; }
+    .header .cta-button { margin-bottom: 21px; }
+
+    /* Grid/Feature Card stack on mobile */
+    .md\:grid-cols-2 { grid-template-columns: 1fr; }
+
+    /* ------------------------------------------ */
+    /* **MOBILE FIXES FOR ROI & GUARANTEE SECTIONS** */
+    /* ------------------------------------------ */
+
+    /* 1. Collapse the Testimonial Grid (ROI/Projected ROI Cards) */
+    .testimonial-grid {
+        grid-template-columns: 1fr; /* Stack into a single column */
+        gap: 1.5rem; /* Reduce gap slightly for mobile */
+    }
+
+    /* 2. Collapse the Guarantee Card grid (Assuming the guarantee section uses a 3-column structure not defined here, but should be caught by adding a general 3-column fix) */
+    .md\:grid-cols-3 {
+        grid-template-columns: 1fr; /* Add support for potential 3-column grids to stack */
+        gap: 1.5rem;
+    }
+
+    /* 3. Center text for better flow on stacked cards (Guarantees and Testimonials) */
+    .guarantee-card {
+        text-align: center;
+    }
+    .testimonial-card {
+        text-align: center;
+    }
+
+    .centered-shift {
+        /* Reset the manual horizontal shift for mobile screens */
+        transform: translateX(0);
+    }
+    /* ------------------------------------------ */
+
+
+    /* Authority Block Mobile */
+    .authority-block .container { padding: 40px 15px; gap: 20px; }
+    .authority-photo { width: 100px; height: 100px; }
+    .authority-slogan { font-size: 1.5em; }
+    .authority-description, .authority-cta { font-size: 1em; }
+
+    /* Quote Mobile */
+    .social-proof-quote { padding: 40px 15px; }
+    .quote-text {
+        font-size: 1.4em;
+        text-align: center;
+        padding-left: 0;
+        border-left: none;
+        border-top: 3px solid var(--color-primary);
+        padding-top: 15px;
+    }
+    .quote-source { font-size: 1em; text-align: center; padding-left: 0; }
+
+    .contact-form {
+        grid-template-columns: 1fr; /* Stack all fields on mobile */
+        gap: 15px;
+    }
+
+    /* Mobile Footer Stack (Gon's Original) */
+    .footer {
+        flex-direction: column;
+        padding: 15px 20px;
+        text-align: center;
+        gap: 10px;
+    }
+    .copyright-info { order: 2; align-items: center; }
+    .socials-container { order: 1; margin-bottom: 5px; }
+
+    .nav-menu {
+        display: none;
+    }
+}
