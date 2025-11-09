@@ -1111,20 +1111,53 @@ body {
     gap: 15px;
 }
 
-/* --- Success Alert Styles --- */
-.success-alert-message {
-    background-color: #d1e7dd; /* Light green background */
-    color: #0f5132; /* Dark green text */
-    border: 1px solid #badbcc;
-    padding: 15px;
-    margin: 20px auto 30px; /* Center it and add spacing */
-    border-radius: 8px;
+/* --- CTA BUTTONS (Gon's Pulse, REIVA's Color) --- */
+.about-button {
+    background-color: #0000FF;
+    color: white;
+    padding: 1rem 3rem;
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
     font-size: 1.1rem;
-    font-weight: 600;
-    text-align: center;
-    max-width: 600px; /* Match form width */
-    opacity: 0; /* Start invisible for a slight fade-in */
-    animation: fadeIn 0.5s forwards;
+    display: inline-block;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.5);
+    cursor: pointer;
+    animation: pulse 2.5s infinite ease-in-out;
+    margin-top: 50px; /* Added for the .cta-button-some in the final CTA section */
+}
+.about-button:hover {
+    background-color: #0000FF;
+    transform: translateY(-3px);
+    animation: none;
+}
+
+/* --- New Rule: Visual Feedback for Clickable Images --- */
+
+/* Targets all images that open the modal (.js-zoom-trigger) for consistent styling */
+.js-zoom-trigger {
+    cursor: pointer;
+    /* BASE STYLE: Add a consistent light border/shadow for all static images */
+    border: 2px solid rgba(255, 255, 255, 0.4); /* Subtle gray/white border */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Subtle base shadow */
+
+    /* Ensure a smooth transition for ALL properties (scale, shadow, border) */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.js-zoom-trigger:hover {
+    /* HOVER ANIMATION: The consistent blue shadow and slight scale */
+    transform: scale(1.03);
+    /* The desired blue glow and border color */
+    box-shadow: 0 0 25px rgba(0, 119, 182, 0.9); /* Stronger blue glow */
+    border-color: var(--color-blue-400); /* Optional: Change border color on hover */
+}
+
+/* Maintain the logo trigger consistency */
+.js-modal-trigger {
+    cursor: pointer;
 }
 
 @keyframes fadeIn {
@@ -1209,5 +1242,56 @@ body {
 
     .nav-menu {
         display: none;
+    }
+
+    .about-section .flex-wrap {
+        gap: 0.5rem 0 !important;
+        justify-content: center;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    /* 2. Shrink Images and Video and Ensure 2x2 Layout */
+    .js-zoom-trigger,
+    .about-section video {
+        height: 120px !important;
+
+        /* CRUCIAL: Set the width to GUARANTEE only two fit per row. */
+        width: calc(50% - 10px) !important;
+        max-width: calc(50% - 10px) !important;
+
+        /* NEW: Enforce consistent behavior on mobile for aspect ratios */
+        object-fit: cover !important;
+    }
+
+    /* Target the image that had margin-left: 163px in Section 2 (Blackbelt) */
+    .about-section img[style*="margin-left: 163px;"] {
+        margin-left: 0 !important;
+    }
+
+    /* Target the image that had margin-left: 180px in Section 3 (Certificates) */
+    .about-section img[style*="margin-left: 180px;"] {
+        margin-left: 0 !important;
+    }
+
+    /* Target the image that had margin-left: 50px in Section 4 (Project 1) */
+    .about-section img[style*="margin-left: 50px;"] {
+        margin-left: 0 !important;
+    }
+
+    /* Target the video's parent div that had margin-left: 194px in Section 4 (Video) */
+    .about-section .flex-wrap[style*="margin-left: 194px;"] {
+        margin-left: 0 !important;
+    }
+
+    /* Target the radio image that had margin-top: 40px in Section 1 */
+    .about-section img[style*="margin-top: 40px;"] {
+        margin-top: 0 !important;
+    }
+
+    /* Also reset general margins on all images if necessary for stacking */
+    .js-zoom-trigger {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
 }

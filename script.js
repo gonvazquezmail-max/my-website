@@ -18,17 +18,40 @@ document.addEventListener('DOMContentLoaded', () => {
     // ------------------------------------------------
     const modal = document.getElementById('fullImageModal');
     const closeButton = document.querySelector('.close-button');
-    const modalTriggers = document.querySelectorAll('.js-modal-trigger'); // New selector
+    const modalImageDisplay = document.getElementById('fullImageDisplay'); // The <img> element inside the modal
 
-    if (modal && closeButton) {
+    // Selectors for elements that open the modal:
+    const logoModalTriggers = document.querySelectorAll('.js-modal-trigger'); // For the header/footer logos
+    const imageZoomTriggers = document.querySelectorAll('.js-zoom-trigger'); // For all the new proof images
 
-        // --- NEW: Function to open the modal when clicking any element with the trigger class ---
-        modalTriggers.forEach(trigger => {
+    if (modal && closeButton && modalImageDisplay) {
+
+        // --- A. Handle logo/static triggers (.js-modal-trigger) ---
+        // These always show the default logo.png
+        logoModalTriggers.forEach(trigger => {
             trigger.addEventListener('click', (e) => {
-                e.preventDefault(); // Stop the link from navigating anywhere
-                modal.style.display = 'flex'; // Show the modal
+                e.preventDefault();
+                modalImageDisplay.src = 'logo.png'; // Set default image
+                modal.style.display = 'flex';
             });
         });
+
+        // --- B. Handle proof image triggers (.js-zoom-trigger) ---
+        // These dynamically set the image source
+        imageZoomTriggers.forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                // Get the source (src) of the image that was clicked
+                const imageSource = trigger.getAttribute('src');
+
+                // Set the modal's image source to the clicked image's source
+                if (imageSource) {
+                    modalImageDisplay.src = imageSource;
+                    modal.style.display = 'flex'; // Show the modal
+                }
+            });
+        });
+
 
         // Function to close the modal via the 'X' button
         closeButton.addEventListener('click', () => {
@@ -37,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Function to close the modal if the user clicks outside the image
         modal.addEventListener('click', (e) => {
-            // Check if the click was directly on the modal background itself, not the image or button
             if (e.target === modal) {
                 modal.style.display = 'none';
             }

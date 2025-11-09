@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Gon Vázquez - Mission & Accomplishments</title>
+
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="shortcut icon" type="image/png" href="logo.png">
+
+    <meta name="description" content="Discover the background, accomplishments, and current mission of Gon Vázquez in AI automation, including his book authorship, martial arts discipline, and technical expertise.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- CUSTOM STYLES FOR ABOUT ME PAGE OVERRIDES -->
+    <style>
+        @keyframes background-move {
+            from {
+                /* Start position */
+                background-position: 0 0;
+            }
+            to {
+                /* Shift by the largest background-size to create a seamless loop */
+                background-position: 120px 120px;
+            }
+        }
+
+        body {
+            font-family: var(--font-family-main);
+            margin: 0;
+            padding: 0;
+            color: var(--color-text-light); /* Default dark sections text color */
+            background-color: var(--color-background);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            text-align: center;
+            line-height: 1.6;
+
+            /* PARTICLE FIELD: Created using multiple radial gradients (reliable method) */
+            background-image:
+                radial-gradient(var(--color-primary) 1px, transparent 0),
+                radial-gradient(rgba(255, 255, 255, 0.7) 1px, transparent 0),
+                radial-gradient(rgba(255, 255, 255, 0.9) 1px, transparent 0);
+
+            background-size: 50px 50px, 80px 80px, 120px 120px;
+            background-position: 0 0;
+            /* Animation is now functional */
+            animation: background-move 7s linear infinite;
+        }
+
+        .mb-96 {
+            margin-bottom: 10rem !important; /* Forces a large margin */
+        }
+
+        .mb-24 {
+            margin-top: 10rem !important;
+        }
+
+        .mb-36 {
+            margin-top: 1rem !important;
+        }
+
+        /* Logo Override: Bigger and more centered */
+        .about-logo-image {
+            /* 200px size for desktop impact */
+            height: 400px !important;
+            width: 400px !important;
+            /* Thicker border */
+            border: 8px solid var(--primary-color) !important;
+            /* Ensure centering and correct spacing */
+            /* Deeper blue glow */
+            box-shadow: 0 0 40px rgba(0, 119, 182, 0.7);
+        }
+
+        /* MY VISION Card Improvement: More padding, bigger title, better appearance */
+        .vision-card-enhanced {
+            /* Increase padding to make content breathe (3rem top/bottom, 3rem left/right) */
+            padding: 3rem !important;
+            /* Use a slightly lighter blue background for better contrast against the main background */
+            background-color: #1a4a82 !important;
+            /* Thicker, more visible left border using the accent color */
+            border-left: 8px solid var(--accent-color) !important;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .vision-card-enhanced:hover {
+            transform: scale(1.02);
+            /* Soft red/orange shadow on hover */
+            box-shadow: 0 0 40px rgba(232, 77, 59, 0.5);
+        }
+
+        .vision-card-enhanced h4 {
+            /* Increase the title size (was 1.5rem, now 2rem) */
+            font-size: 2rem !important;
+            letter-spacing: 1px;
+            /* Use the primary red for the title, giving it prominence */
+            color: var(--color-primary) !important;
+            text-shadow: 0 0 5px rgba(252, 211, 77, 0.7); /* Subtle yellow glow */
+        }
+
+        /* Mobile adjustments for a smaller screen */
+        @media (max-width: 768px) {
+            .vision-card-enhanced {
+                /* Adjust padding for mobile devices */
+                padding: 2rem 1.5rem !important;
+            }
+            .about-logo-image {
+                /* Restore a slightly smaller size on mobile */
+                height: 150px !important;
+                width: 150px !important;
+            }
+        }
+    </style>
+</head>
+<body class="about-page-body">
+
+    <!-- HEADER (Reused from existing structure) -->
+    <header class="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo-link flex items-center" id="logoLink">
+                <img src="logo.png" alt="Gon Vázquez Face Logo" class="logo-image" style="height: 30px; width: auto; margin-right: 11px; border-radius: 50%;">
+                <h1 class="logo-text text-3xl mr-1" style="color: #FFFFFF; font-weight: 800; font-size: 1.5rem;">Gon Vázquez</h1>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="nav-menu">
+                <a href="index.html#benefits" class="nav-link">Benefits</a>
+                <a href="index.html#process" class="nav-link">Process</a>
+                <a href="index.html#risk-reversal-section" class="nav-link">Safety</a>
+                <a href="index.html#roi-section" class="nav-link">Projection</a>
+                <a href="index.html#about-me-section" class="nav-link">About me</a>
+            </nav>
+
+            <a href="index.html#contact-form" class="cta-button bg-accent-color hover:bg-cf4336" id="ctaButtonHeader">
+                GET YOUR AI AUTOMATION
+            </a>
+        </div>
+    </header>
+
+    <main class="about-section" id="top-of-page">
+        <div class="container py-16">
+
+            <div class="max-w-4xl mx-auto text-center mb-12">
+                <h2 class="text-3xl font-extrabold" style="font-size: 3.5rem; color: var(--color-primary);" data-aos="fade-up">
+                    ABOUT ME
+                </h2>
+                <img src="logo.png" alt="Gon Vázquez Logo" class="about-logo-image" data-aos="zoom-in">
+
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    My name is <strong>Gonzalo Sebastián Vázquez</strong>, but most people know me as <strong>Gon Vázquez</strong> — and this is a dedicated page to share what I’ve accomplished so far and the mission that drives me forward.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto mb-96 mb-24 text-left" data-aos="fade-up">
+                <h3 class="text-3xl font-extrabold mb-4" style="color: var(--color-text-light);">
+                    1. I AUTHORED A 200-PAGE CRYPTO BOOK
+                </h3>
+                <p class="text-xl text-gray-300 mb-6">
+                    When I was 15, I wrote a full 200-page book about cryptocurrency and blockchain in just six months.
+                </p>
+                <p class="text-gray-400 mb-8">
+                    I first got into crypto at 13, and by 15 I had already built enough understanding to share my perspective with the world. That project led me to appear on <strong>TV</strong> and <strong>international radio</strong>, where I talked about education and financial safety in the digital age.
+                </p>
+                <div class="flex justify-center items-center gap-10 flex-wrap">
+                    <img src="book.jpg" alt="Book cover" class="js-zoom-trigger" style="height: 240px; border-radius: 8px;" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="tv1.jpg" alt="TV appearance photo" class="js-zoom-trigger" style="height: 240px; border-radius: 8px;" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="tv2.jpg" alt="TV appearance photo" class="js-zoom-trigger" style="height: 240px; border-radius: 8px;" data-aos="zoom-in" data-aos-delay="300">
+                </div>
+                <p class="text-sm text-gray-400 mt-4 mx-auto text-center max-w-lg">
+                    <strong>(Note: This layout is best viewed on a computer. Click on any image to see it fully.)</strong>
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto mb-96 text-left" data-aos="fade-up" data-aos-delay="500">
+                <h3 class="text-3xl font-extrabold mb-4" style="color: var(--color-text-light);">
+                    2. I EARNED MY TAEKWONDO BLACK BELT
+                </h3>
+                <p class="text-xl text-gray-300 mb-6">
+                    I started Taekwondo at age 8, and after years of rigorous training, I earned my <strong>black belt</strong> at 14.
+                </p>
+                <p class="text-gray-400 mb-8">
+                    It taught me one thing I still live by today: <strong>discipline beats motivation</strong>.
+                </p>
+                <div class="flex justify-center items-center gap-10">
+                    <img src="blackbelt.png" alt="Taekwondo Black Belt photo" class="js-zoom-trigger" style="height: 240px; border-radius: 8px; margin-left: 163px;" data-aos="zoom-in" data-aos-delay="600">
+                    <img src="certificate.png" alt="Taekwondo Certificate photo" class="js-zoom-trigger" style="height: 240px; border-radius: 8px;" data-aos="zoom-in" data-aos-delay="600">
+                </div>
+                <p class="text-sm text-gray-400 mt-4 mx-auto text-center max-w-lg">
+                    <strong>(Note: This layout is best viewed on a computer. Click on any image to see it fully.)</strong>
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto mb-96 text-left" data-aos="fade-up" data-aos-delay="700">
+                <h3 class="text-3xl font-extrabold mb-4" style="color: var(--color-text-light);">
+                    3. I COMPLETED 5+ HIGH-VALUE TECH COURSES
+                </h3>
+                <p class="text-xl text-gray-300 mb-6">
+                    Between ages 13 and 16, I immersed myself in multiple fields that shaped how I think today — from <strong>Python</strong> and <strong>cybersecurity</strong> to <strong>blockchain</strong>, <strong>digital marketing</strong>, and <strong>public speaking</strong>.
+                </p>
+                <p class="text-gray-400 mb-8">
+                    Here are a few certifications I’ve earned:
+                </p>
+
+                <div class="flex justify-center items-center gap-5 flex-wrap">
+                    <img src="certificate1.jpg" alt="Certificate 1" class="js-zoom-trigger" style="height: 240px; border-radius: 4px;" data-aos="flip-up">
+                    <img src="certificate2.jpg" alt="Certificate 2" class="js-zoom-trigger" style="height: 240px; border-radius: 4px;" data-aos="flip-up" data-aos-delay="100">
+                    <img src="certificate3.jpg" alt="Certificate 3" class="js-zoom-trigger" style="height: 240px; border-radius: 4px;" data-aos="flip-up" data-aos-delay="200">
+                </div>
+
+                <div class="flex justify-center items-center gap-5 flex-wrap">
+                    <img src="certificate4.jpg" alt="Certificate 4" class="js-zoom-trigger" style="height: 240px; border-radius: 4px; margin-left: 180px;" data-aos="flip-up" data-aos-delay="300">
+                    <img src="certificate5.jpg" alt="Certificate 5" class="js-zoom-trigger" style="height: 240px; border-radius: 4px;" data-aos="flip-up" data-aos-delay="400">
+                </div>
+                <p class="text-sm text-gray-400 mt-4 mx-auto text-center max-w-lg">
+                    <strong>(Note: This layout is best viewed on a computer. Click on any image to see it fully.)</strong>
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto mb-96 text-left" data-aos="fade-up">
+                <h3 class="text-3xl font-extrabold mb-4" style="color: var(--color-text-light);">
+                    4. I BUILT MY OWN PROJECTS IN PYTHON, JAVASCRIPT & HTML
+                </h3>
+                <p class="text-xl text-gray-300 mb-6">
+                    At 17, I started creating my own independent projects — including <strong>AI automations</strong>, <strong>AI tools</strong>, <strong>AI Avatar apps</strong>, and the website you’re visiting right now.
+                </p>
+                <p class="text-gray-400 mb-8">
+                    I believe in <strong>learning by building</strong>, and I never stop experimenting.
+                </p>
+                <div class="flex justify-center items-center gap-10 flex-wrap">
+                    <img src="project1.png" alt="Project 1" class="js-zoom-trigger" style="height: 240px; border-radius: 8px; margin-left: 50px;" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="project2.png" alt="Project 2" class="js-zoom-trigger" style="height: 240px; border-radius: 8px;" data-aos="zoom-in" data-aos-delay="300">
+                </div>
+                <div class="flex justify-center items-center gap-5 flex-wrap mb-5" style="margin-left: 194px;">
+                    <video
+                        src="project3.mp4"
+                        alt="Project 3 Video Demonstration"
+                        data-aos="zoom-in"
+                        data-aos-delay="400"
+                        style="height: 240px; border-radius: 8px; margin-top: 40px;"
+                        controls
+                        loop
+                        muted
+                    >
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <p class="text-sm text-gray-400 mt-4 mx-auto text-center max-w-lg">
+                    <strong>(Note: This layout is best viewed on a computer. Click on any image to see it fully. The video may not be well-viewed on mobile phones.)</strong>
+                </p>
+            </div>
+
+            <div class="vision-card-enhanced rounded-xl shadow-2xl" data-aos="zoom-in" data-aos-delay="600">
+                <h4 class="text-2xl font-extrabold mb-36">
+                    MY VISION
+                </h4>
+                <p class="text-gray-300">
+                    I believe that the combination of artificial intelligence, automation, and education will redefine how humans work, learn, and grow.
+                </p>
+                <p class="text-xl font-extrabold mt-3" style="color: var(--color-text-light);">
+                    My mission is to lead that transformation — one business at a time.
+                </p>
+            </div>
+
+        </div>
+    </main>
+
+
+    <!-- FOOTER (Reused from existing structure) -->
+    <footer class="footer">
+        <div class="footer-left-content" style="display: flex; align-items: center; gap: 10px;">
+
+            <a href="#" class="js-modal-trigger">
+                <img src="logo.png" alt="Gon Vázquez Logo" style="height: 60px; width: auto; border-radius: 50%;">
+            </a>
+
+            <div class="copyright-info" style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start;">
+
+                <p class="contact-email" style="margin: 0; font-size: 1em; font-weight: 500;">
+                    <a href="mailto:gon.vazquez.mail@gmail.com" class="footer-link">gon.vazquez.mail@gmail.com</a>
+                </p>
+
+                <p style="margin: 0; font-size: 0.85em; color: #9ca3af;">
+                    &copy; 2025 Gon Vázquez. All rights reserved.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="socials-container">
+
+            <div class="social-icons-wrapper" style="display: flex; align-items: center; margin-bottom: 5px; gap: 8px;">
+                <span class="socials-label">SOCIALS:</span>
+
+                <a href="https://www.youtube.com/@gon.vazquez" target="_blank">
+                    <img src="youtube.png" alt="YouTube Logo" style="height: 30px; width: 40px; border-radius: 4px;">
+                </a>
+
+                <a href="https://www.instagram.com/gon.vazquez.ai/" target="_blank">
+                    <img src="instagram.png" alt="Instagram Logo" style="height: 30px; width: 30px; border-radius: 4px;">
+                </a>
+
+                <a href="https://www.tiktok.com/@gon.vazquez.ai" target="_blank">
+                    <img src="tiktok.png" alt="TikTok Logo" style="height: 33px; width: 35px; border-radius: 4px; margin-top: 1px;">
+                </a>
+            </div>
+
+            <p class="legal-links" style="margin: 0; display: flex; gap: 10px; font-size: 0.9em; align-items: center;">
+                <a href="termsandconditions.html" target="_blank" class="footer-link">Terms and Conditions</a>
+                <span style="color: #9ca3af;">|</span>
+                <a href="privacypolicy.html" target="_blank" class="footer-link">Privacy Policy</a>
+            </p>
+        </div>
+    </footer>
+
+    <div id="fullImageModal" class="modal">
+        <span class="close-button">&times;</span>
+        <img class="modal-content" id="fullImageDisplay" src="logo.png" alt="Full size image of Gon Vázquez">
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            once: true,
+            disable: 'mobile' // Disable animation on mobile devices (optional)
+        });
+    </script>
+</body>
+</html>
